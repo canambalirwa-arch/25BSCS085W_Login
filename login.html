@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Calvin's Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            color: #e8e8e8;
+        }
+
+        .login-container {
+            background: rgba(26, 26, 26, 0.95);
+            border: 1px solid #2a2a2a;
+            padding: 3rem;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .login-logo {
+            font-size: 3rem;
+            color: #0099ff;
+            margin-bottom: 1rem;
+        }
+
+        .login-header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #0099ff, #9d4edd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .login-header p {
+            color: #a0a0a0;
+            font-size: 0.95rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #e8e8e8;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: rgba(42, 42, 42, 0.8);
+            border: 1px solid #2a2a2a;
+            border-radius: 5px;
+            color: #e8e8e8;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #0099ff;
+            background: rgba(42, 42, 42, 1);
+            box-shadow: 0 0 10px rgba(0, 153, 255, 0.2);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 1rem;
+            background: #0099ff;
+            color: #000;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 153, 255, 0.3);
+        }
+
+        .login-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .error-message {
+            background: rgba(255, 82, 82, 0.1);
+            border: 1px solid #ff5252;
+            color: #ff8888;
+            padding: 0.75rem 1rem;
+            border-radius: 5px;
+            margin-bottom: 1.5rem;
+            display: none;
+            text-align: center;
+        }
+
+        .success-message {
+            background: rgba(0, 208, 132, 0.1);
+            border: 1px solid #00d084;
+            color: #66ffcc;
+            padding: 0.75rem 1rem;
+            border-radius: 5px;
+            margin-bottom: 1.5rem;
+            display: none;
+            text-align: center;
+        }
+
+        .demo-credentials {
+            background: rgba(0, 153, 255, 0.05);
+            border: 1px solid #0099ff;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+        }
+
+        .demo-credentials p {
+            color: #a0a0a0;
+            margin-bottom: 0.5rem;
+        }
+
+        .demo-credentials code {
+            background: rgba(0, 0, 0, 0.3);
+            color: #00d084;
+            padding: 0.25rem 0.5rem;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            color: #a0a0a0;
+        }
+
+        .spinner {
+            border: 3px solid rgba(0, 153, 255, 0.2);
+            border-top: 3px solid #0099ff;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 1rem auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 480px) {
+            .login-container {
+                padding: 2rem;
+            }
+
+            .login-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .login-logo {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-header">
+            <div class="login-logo">👨‍💻</div>
+            <h1>Welcome Back</h1>
+            <p>Calvin's Portfolio</p>
+        </div>
+
+        <div class="error-message" id="errorMessage"></div>
+        <div class="success-message" id="successMessage"></div>
+
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required autocomplete="username">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required autocomplete="current-password">
+            </div>
+
+            <button type="submit" class="login-btn" id="loginBtn">Login</button>
+        </form>
+
+        <div class="loading" id="loading">
+            <p>Logging in...</p>
+            <div class="spinner"></div>
+        </div>
+
+        <!--<div class="demo-credentials">
+            <p><strong>Demo Credentials:</strong></p>
+            <p>Username: <code>demo</code></p>
+            <p>Password: <code>password123</code></p>
+            <p style="margin-top: 0.5rem; color: #0099ff; font-size: 0.8rem;">💡 Or use your own credentials!</p>
+        </div>
+    </div>-->
+
+    <script>
+        // Demo user database (in real app, this would be on a server)
+        const validUsers = {
+            'demo': 'password123',
+            'user': 'test123'
+        };
+
+        const loginForm = document.getElementById('loginForm');
+        const loginBtn = document.getElementById('loginBtn');
+        const errorMessage = document.getElementById('errorMessage');
+        const successMessage = document.getElementById('successMessage');
+        const loading = document.getElementById('loading');
+
+        // Check if already logged in
+        window.addEventListener('load', () => {
+            if (localStorage.getItem('portfolioLoggedIn') === 'true') {
+                window.location.href = 'index.html';
+            }
+        });
+
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value;
+
+            // Hide messages
+            errorMessage.style.display = 'none';
+            successMessage.style.display = 'none';
+
+            // Validate
+            if (!username || !password) {
+                showError('Please fill in all fields');
+                return;
+            }
+
+            // Show loading
+            loading.style.display = 'block';
+            loginBtn.disabled = true;
+
+            // Simulate server request delay
+            setTimeout(() => {
+                // Check credentials
+                if (validUsers[username] && validUsers[username] === password) {
+                    // Store login state
+                    localStorage.setItem('portfolioLoggedIn', 'true');
+                    localStorage.setItem('portfolioUsername', username);
+
+                    // Show success
+                    successMessage.textContent = `Welcome, ${username}! Redirecting...`;
+                    successMessage.style.display = 'block';
+
+                    // Redirect after short delay
+                    setTimeout(() => {
+                        window.location.href = 'index.html';
+                    }, 1500);
+                } else {
+                    // Show error
+                    showError('Invalid username or password');
+                    loading.style.display = 'none';
+                    loginBtn.disabled = false;
+                }
+            }, 800);
+        });
+
+        function showError(message) {
+            errorMessage.textContent = message;
+            errorMessage.style.display = 'block';
+            loading.style.display = 'none';
+            loginBtn.disabled = false;
+        }
+    </script>
+</body>
+</html>
