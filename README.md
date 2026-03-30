@@ -7,6 +7,15 @@
 - Registration Number: 25BSCS085W
 - Technologies Used: HTML5, CSS3, JavaScript, PHP, MySQL
 
+##  Features
+
+- **Modern Design**: NYC-inspired dark theme with gradient accents
+- **Fully Responsive**: Mobile, tablet, and desktop optimized
+- **GitHub Pages Ready**: Pure static HTML/CSS/JS - no server required
+- **Smooth Animations**: Creative transitions and hover effects
+- **Professional Profile**: Detailed introduction section for your resume/CV
+- **Contact Form**: Interactive contact section
+- **Social Links**: Easy integration with social media profiles
 
 ##  File Structure
 
