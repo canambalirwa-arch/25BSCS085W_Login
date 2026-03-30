@@ -1,28 +1,45 @@
-# Carlvin's Portfolio
+# Calvin's Portfolio
 
-A modern, responsive portfolio website with NYC-inspired styling. Built with HTML5, CSS3, and JavaScript - fully compatible with GitHub Pages.
+##  Project Info
 
-## 🎨 Features
+- Project Name: Portfolio with Login
+- Name: NAMBALIRWA CALVIN
+- Registration Number: 25BSCS085W
+- Technologies Used: HTML5, CSS3, JavaScript, PHP, MySQL
 
-- **Modern Design**: NYC-inspired dark theme with gradient accents
-- **Fully Responsive**: Mobile, tablet, and desktop optimized
-- **GitHub Pages Ready**: Pure static HTML/CSS/JS - no server required
-- **Smooth Animations**: Creative transitions and hover effects
-- **Professional Profile**: Detailed introduction section for your resume/CV
-- **Contact Form**: Interactive contact section
-- **Social Links**: Easy integration with social media profiles
 
-## 📁 File Structure
+##  File Structure
 
 ```
 ├── index.html          # Main portfolio page
+├── db_connect.php      # Centralized MySQL connection settings
 ├── styles.css          # All styling (NYC theme)
 ├── script.js           # Interactive features
 ├── README.md           # This file
-└── assets/             # (Optional) Add images/icons here
+├── database.sql        # Create tables + sample data
+└── assets/             # Add images/icons here
 ```
 
-## 🚀 Deployment
+##  Deployment
+
+### How to Run Locally
+
+1. Install XAMPP (Windows) or LAMP/MAMP (Mac/Linux).
+2. Copy the project folder into your web root:
+   - Windows: `C:\xampp\htdocs\carlvin`
+   - Mac/Linux: `/Applications/MAMP/htdocs/carlvin` or `/var/www/html/carlvin`
+3. Start Apache and MySQL services.
+4. Open browser and go to: `http://localhost/carlvin/index.html` for portfolio, or `http://localhost/carlvin/bakery.php` for bakery demo.
+5. Edit `db_connect.php` with your database credentials:
+   - `host`, `user`, `password`, `dbname`
+
+### Database Import Instructions
+
+1. Open phpMyAdmin (`http://localhost/phpmyadmin`).
+2. Create a database (e.g., `carlvin_bakery`).
+3. Select the database and go to the `Import` tab.
+4. Choose `database.sql` from this project and click `Go`.
+5. Verify table `tbl_bakery` is created and sample rows inserted.
 
 ### Deploy to GitHub Pages
 
@@ -36,7 +53,7 @@ Or for a project repository:
 3. Enable Pages in repository settings
 4. Access at `https://username.github.io/repository-name`
 
-## ✏️ Customize Your Profile
+##  Customize Your Profile
 
 Edit `index.html` to add your information:
 
@@ -47,7 +64,7 @@ Edit `index.html` to add your information:
 - **Social Links**: Add your GitHub, LinkedIn, Twitter URLs
 - **Stats**: Update years of experience, projects completed, etc.
 
-## 🎯 Key Sections
+ Key Sections
 
 ### Hero Section
 Your main introduction with CTA buttons
@@ -58,12 +75,12 @@ Personal biography and key statistics
 ### Skills Section
 Technical skills in card format
 
-### Contact Section
+ Contact Section
 Contact form and social links
 
-## 🎨 Customization
+ Customization
 
-### Change Colors
+ Change Colors
 Edit the CSS variables in `styles.css`:
 
 ```css
@@ -75,14 +92,14 @@ Edit the CSS variables in `styles.css`:
 }
 ```
 
-### Add Images
+ Add Images
 Place images in an `assets/` folder and reference them in HTML:
 
 ```html
 <img src="assets/profile.jpg" alt="Profile picture">
 ```
 
-### Update Social Links
+Update Social Links
 Find the social links section and update URLs:
 
 ```html
@@ -91,7 +108,9 @@ Find the social links section and update URLs:
 </a>
 ```
 
-## 📋 Browser Support
+---
+
+ Browser Support
 
 - Chrome (latest)
 - Firefox (latest)
@@ -99,11 +118,11 @@ Find the social links section and update URLs:
 - Edge (latest)
 - Mobile browsers
 
-## 📝 License
+ License
 
 Feel free to use this template for your own portfolio.
 
-## 🙏 Credits
+ Credits
 
 - Font Awesome icons for social media and skill icons
 - Modern CSS Grid and Flexbox for responsive layout
@@ -111,3 +130,6 @@ Feel free to use this template for your own portfolio.
 ---
 
 **Good luck with your portfolio! 🚀**
+
+
+
